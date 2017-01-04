@@ -5,7 +5,7 @@ package pixLab.classes;
  * methods.  Uncomment the methods and the code
  * in the main to test.
  * 
- * @author Barbara Ericson 
+ * @author dgnu9879
  */
 public class PictureTester
 {

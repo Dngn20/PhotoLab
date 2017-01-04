@@ -6,6 +6,7 @@ public class IntArrayWorker
   
   /** set the matrix to the passed one
     * @param theMatrix the one to use
+    * @author dngu9879
     */
   public void setMatrix(int[][] theMatrix)
   {
@@ -48,7 +49,10 @@ public class IntArrayWorker
 	  
 	  return largest;
   }
-  
+  public int getColTotal()
+  {
+	  int col = 
+  }
   /**
    * Method to return the total 
    * @return the total of the values in the array
