@@ -182,6 +182,73 @@ public class Picture extends SimplePicture
     }
   }
   
+  
+  public void MirrorDiagonal()
+  {
+	  Pixel [] [] pixels = this.getPixels2D();
+	  Pixel topRightPixel = null;
+	  Pixel bottomLeftPixel = null;
+	  
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  topRightPixel = pixels[row][col];
+			  bottomLeftPixel = pixels[row][col];
+			  
+			  if(row !=col && row < pixels[0].length && col < pixels[0].length)
+			  {
+				  bottomLeftPixel.setColor(topRightPixel.getColor());
+			  }
+		  }
+	  }
+  }
+  
+  	public void mirrorDiagonalUpHill()
+  	{
+  		Pixel topLeft = null;
+  		Pixel bottomRight = null;
+  		Pixel [] [] pictureMatrix = this.getPixels2D();
+  		int shortest = Math.min(pictureMatrix.length, pictureMatrix[0].length);
+  		
+  		for(int row = 0; row < shortest; row++)
+  		{
+  			for (int col = 0; col < shortest; col++)
+  			{
+  				if(row + col != shortest -1)
+  				{
+  					topLeft = pictureMatrix[row][col];
+  					bottomRight = pictureMatrix[shortest - col - 1][shortest - row - 1 ];
+  					topLeft.setColor(bottomRight.getColor());
+  					
+  				}
+  			}
+  		}
+  	}
+  	
+  	public void mirrorGull()
+  	{
+  		int mirrorPoint = 225;
+  		Pixel leftPixel = null;
+  		Pixel rightPixel = null;
+  		int count = 0;
+  		Pixel [] [] pixels = this.getPixels2D();
+  		
+  		for (int row = 230; row < 350; row++)
+  		{
+  			for (int col = 230; col < 350; col++)
+  			{
+  				leftPixel = pixels[row][col];
+  				rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
+  		        rightPixel.setColor(leftPixel.getColor());
+  		     }
+  		}
+  	}
+  	
+  	public void mirrorArms()
+  	{
+  		
+  	}
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture

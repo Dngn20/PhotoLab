@@ -44,10 +44,10 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
-    temple.explore();
-    temple.mirrorTemple();
-    temple.explore();
+//    Picture temple = new Picture("temple.jpg");
+//    temple.explore();
+//    temple.mirrorTemple();
+//    temple.explore();
   }
   
   /** Method to test the collage method */
@@ -65,7 +65,35 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
+  public static void testMirrorDiagonal()
+  {
+//	  Picture swan = new Picture("butterfly1.jpg");
+//	  swan.explore();
+//	  swan.MirrorDiagonal();
+//	  swan.mirrorDiagonalUpHill();
+//	  swan.explore();
+  }
   
+  public static void testMirrorGull()
+  {
+	  Picture gull = new Picture("seagull.jpg");
+	  gull.explore();
+	  gull.mirrorGull();
+	  gull.explore();
+  }
+  
+  public static void testMirrorArms()
+  {
+	  Picture snowman = new Picture("snowman.jpg");
+	  snowman.explore();
+	  
+	
+  }
+  
+  public static void testEdgeDetection2()
+  {
+	  
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -80,17 +108,17 @@ public class PictureTester
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
-    testMirrorVerticalRightToLeft();
-    testMirrorHorizontalBottomToTop();
-    //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
+//    testMirrorVertical();
+//    testMirrorVerticalRightToLeft();
+//    testMirrorHorizontalBottomToTop();
+    testMirrorTemple();
+//    testMirrorArms();
+    testMirrorGull();
+    testMirrorDiagonal();
     //testCollage();
     //testCopy();
     //testEdgeDetection();
-    //testEdgeDetection2();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
