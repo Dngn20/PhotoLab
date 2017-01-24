@@ -247,6 +247,7 @@ public class Picture extends SimplePicture
   	
   	public void mirrorArms()
   	{
+  		Pixel [] [] pixels = this.getPixels2D();
   		
   	}
   /** copy from the passed fromPic to the
@@ -324,7 +325,47 @@ public class Picture extends SimplePicture
     }
   }
   
-  
+  public void lifeOnTheEdge(int edgeDist)
+  {
+	    Pixel pPixel = null;
+	    Pixel rightPixel = null;
+	    Pixel topPixel = null;
+	    Pixel bottomPixel = null;
+	    Pixel[][] pixels = this.getPixels2D();
+	    Color leftColor = null;
+	    Color bottomColor = null;
+	    
+	    for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; 
+	           col < pixels[0].length-1; col++)
+	      {
+	    	
+	    	pPixel = pixels[row][col];
+	        rightPixel = pixels[row][col+1];
+	        bottomPixel = pixels[row][col+1];
+	        topPixel = pixels[row][col];
+	        
+	        
+	        leftColor = rightPixel.getColor();
+	        bottomColor = pPixel.getColor();
+	      
+	        if (pPixel.colorDistance(leftColor) > edgeDist || (pPixel.colorDistance(bottomColor) >edgeDist))
+	        	pPixel.setColor(Color.BLACK);
+	        else
+	        	pPixel.setColor(Color.WHITE);
+	        	
+	        
+	       
+//	        
+//	        if(bottomPixel.colorDistance(bottomColor) > edgeDist)
+//	        	bottomPixel.setColor(Color.BLACK);
+//	        else 
+//	        	bottomPixel.setColor(Color.WHITE);
+
+	      }
+	    }
+	  }  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */

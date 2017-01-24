@@ -90,9 +90,11 @@ public class PictureTester
 	
   }
   
-  public static void testEdgeDetection2()
+  public static void testlifeOnTheEdge()
   {
-	  
+	  Picture snowman = new Picture("swan.jpg");
+	  snowman.lifeOnTheEdge(20);
+	  snowman.explore();
   }
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -111,14 +113,14 @@ public class PictureTester
 //    testMirrorVertical();
 //    testMirrorVerticalRightToLeft();
 //    testMirrorHorizontalBottomToTop();
-    testMirrorTemple();
+//    testMirrorTemple();
 //    testMirrorArms();
-    testMirrorGull();
-    testMirrorDiagonal();
+//    testMirrorGull();
+//    testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
-    testEdgeDetection2();
+    testEdgeDetection();
+    testlifeOnTheEdge();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
