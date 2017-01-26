@@ -15,7 +15,12 @@ public class PictureTester
     Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.zeroBlue();
+    beach.mirrorVertical();
+    beach.mirrorVerticalRightToLeft();
+    beach.fullrandomGreen();
+    beach.MirrorDiagonal();
     beach.explore();
+    beach.write("beach2.jpg");
   }
   
   /** Method to test mirrorVertical */
@@ -24,6 +29,7 @@ public class PictureTester
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
+    caterpillar.mirrorVerticalRightToLeft();
     caterpillar.explore();
   }
   public static void testMirrorVerticalRightToLeft()
@@ -38,16 +44,17 @@ public class PictureTester
 	  Picture swan = new Picture("swan.jpg");
 	  swan.explore();
 	  swan.mirrorHorizontalBottomToTop();
+	  swan.mirrorVerticalRightToLeft();
 	  swan.explore();
   }
   
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-//    Picture temple = new Picture("temple.jpg");
-//    temple.explore();
-//    temple.mirrorTemple();
-//    temple.explore();
+    Picture temple = new Picture("temple.jpg");
+    temple.explore();
+    temple.mirrorTemple();
+    temple.explore();
   }
   
   /** Method to test the collage method */
@@ -67,11 +74,11 @@ public class PictureTester
   }
   public static void testMirrorDiagonal()
   {
-//	  Picture swan = new Picture("butterfly1.jpg");
-//	  swan.explore();
-//	  swan.MirrorDiagonal();
-//	  swan.mirrorDiagonalUpHill();
-//	  swan.explore();
+	  Picture swan = new Picture("butterfly1.jpg");
+	  swan.explore();
+	  swan.MirrorDiagonal();
+	  swan.mirrorDiagonalUpHill();
+	  swan.explore();
   }
   
   public static void testMirrorGull()
@@ -86,6 +93,7 @@ public class PictureTester
   {
 	  Picture snowman = new Picture("snowman.jpg");
 	  snowman.explore();
+	  snowman.mirrorArms();
 	  
 	
   }
@@ -95,6 +103,20 @@ public class PictureTester
 	  Picture snowman = new Picture("swan.jpg");
 	  snowman.lifeOnTheEdge(20);
 	  snowman.explore();
+  }
+  
+  public static void testfullrandomGreen()
+  {
+	  
+  }
+  
+  public static void testCopy()
+  {
+	  Picture snowman = new Picture("swan.jpg");
+	  Picture swan = new Picture("snowman.jpg");
+	  snowman.copy( swan , 100, 100);
+	  snowman.explore();
+	  
   }
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -117,10 +139,11 @@ public class PictureTester
 //    testMirrorArms();
 //    testMirrorGull();
 //    testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
-    testEdgeDetection();
-    testlifeOnTheEdge();
+//    testfullrandomGreen();
+//    testCollage();
+    testCopy();
+//    testEdgeDetection();
+//    testlifeOnTheEdge();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);

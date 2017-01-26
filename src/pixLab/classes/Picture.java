@@ -245,11 +245,7 @@ public class Picture extends SimplePicture
   		}
   	}
   	
-  	public void mirrorArms()
-  	{
-  		Pixel [] [] pixels = this.getPixels2D();
-  		
-  	}
+  	
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -281,6 +277,21 @@ public class Picture extends SimplePicture
     }   
   }
 
+  public void copyin(Picture fromPic, int startRow, int startCol)
+  {
+	    Pixel fromPixel = null;
+	    Pixel toPixel = null;
+	    Pixel[][] toPixels = this.getPixels2D();
+	    Pixel[][] fromPixels = fromPic.getPixels2D();
+	    for (int fromRow = 0, toRow = startRow; fromRow < fromPixels.length && toRow < toPixels.length; fromRow++, toRow++)
+	    {
+	      for (int fromCol = 0, toCol = startCol; fromCol < fromPixels[0].length &&toCol < toPixels[0].length;  fromCol++, toCol++)
+	      {
+	        fromPixel = fromPixels[fromRow][fromCol]; toPixel = toPixels[toRow][toCol]; toPixel.setColor(fromPixel.getColor());
+	      }
+	    }   
+	  
+  }
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
@@ -335,37 +346,114 @@ public class Picture extends SimplePicture
 	    Color leftColor = null;
 	    Color bottomColor = null;
 	    
-	    for (int row = 0; row < pixels.length; row++)
+	    for (int row = 0; row < pixels.length -1 ; row++)
 	    {
 	      for (int col = 0; 
-	           col < pixels[0].length-1; col++)
+	           col < pixels[0].length - 1; col++)
 	      {
 	    	
 	    	pPixel = pixels[row][col];
 	        rightPixel = pixels[row][col+1];
-	        bottomPixel = pixels[row][col+1];
+	        bottomPixel = pixels[row+1][col];
 	        topPixel = pixels[row][col];
 	        
 	        
 	        leftColor = rightPixel.getColor();
-	        bottomColor = pPixel.getColor();
+	        bottomColor = bottomPixel.getColor();
 	      
-	        if (pPixel.colorDistance(leftColor) > edgeDist || (pPixel.colorDistance(bottomColor) >edgeDist))
+	        if (pPixel.colorDistance(leftColor) > edgeDist || (pPixel.colorDistance(bottomColor) > edgeDist))
 	        	pPixel.setColor(Color.BLACK);
 	        else
 	        	pPixel.setColor(Color.WHITE);
-	        	
-	        
-	       
-//	        
-//	        if(bottomPixel.colorDistance(bottomColor) > edgeDist)
-//	        	bottomPixel.setColor(Color.BLACK);
-//	        else 
-//	        	bottomPixel.setColor(Color.WHITE);
 
 	      }
 	    }
-	  }  
+	 }
+  
+  public void fullRandom()
+  {
+	  Pixel [] [] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  int red = (int) (Math.random() * 256);
+			  int green = (int) (Math.random() * 256);
+			  int blue = (int) (Math.random() * 256);
+			  currentPixel.setColor(new Color(red, green, blue));
+		  }
+	  }
+  }
+  
+  
+  public void fullrandomGreen()
+  {
+	  Pixel [] [] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  
+			  int green = (int) (Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(currentPixel.getRed(), green, currentPixel.getBlue()));
+			  
+//			  currentPixel.setGreen(green);
+		  }
+	  }
+  }
+  
+  
+  public void fullrandomBlue()
+  {
+	  Pixel [] [] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  
+			  int red = (int) (Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(currentPixel.getGreen(), red, currentPixel.getBlue()));
+			  
+
+		  }
+	  }
+  }
+  
+  public void fullrandomRed()
+  {
+	  Pixel [] [] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  
+			  int blue = (int) (Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(currentPixel.getGreen(), blue, currentPixel.getRed()));
+			  
+
+		  }
+	  }
+  }
+  
+  public void mirrorArms()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel topPixel = null;
+	  Pixel bottomPixel = null;
+	  
+	  for(int row = 170; row < 100; row++)
+	  {
+		  for(int col = 100; col < 300; col++)
+		  {
+			  topPixel = pixels[row][col];
+			  bottomPixel = pixels [row+20][col];
+			  bottomPixel.setColor(topPixel.getColor());
+		  }
+	  }
+  }
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
