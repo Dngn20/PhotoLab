@@ -309,7 +309,20 @@ public class Picture extends SimplePicture
     this.write("collage.jpg");
   }
   
-  
+  public void Collage2()
+  {
+	  Picture icon1 = new Picture("Android.jpg");
+	    Picture icon2 = new Picture("Apple ICon.jpg");
+	    this.copy(icon1,0,0);
+	    this.copy(icon2,100,0);
+	    this.copy(icon1,200,0);
+	    Picture NoBlue = new Picture(icon2);
+	    this.copy(NoBlue,100,0);
+	    this.copy(icon1,200,0);
+	    this.copy(icon2,300,0);
+	    this.mirrorVertical();
+	    this.write("collage.jpg");
+  }
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */

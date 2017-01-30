@@ -65,6 +65,13 @@ public class PictureTester
     canvas.explore();
   }
   
+  public static void testCollage2()
+  {
+	  Picture canvas = new Picture("beach");
+	    canvas.Collage2();
+	    canvas.explore();
+  }
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -141,7 +148,8 @@ public class PictureTester
 //    testMirrorDiagonal();
 //    testfullrandomGreen();
 //    testCollage();
-    testCopy();
+//    testCopy();
+    testCollage2();
 //    testEdgeDetection();
 //    testlifeOnTheEdge();
     //testChromakey();
