@@ -60,14 +60,14 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("beach.jpg");
     canvas.createCollage();
     canvas.explore();
   }
   
   public static void testCollage2()
   {
-	  Picture canvas = new Picture("beach");
+	  Picture canvas = new Picture("beach.jpg");
 	    canvas.Collage2();
 	    canvas.explore();
   }
@@ -125,6 +125,16 @@ public class PictureTester
 	  snowman.explore();
 	  
   }
+  
+  public static void testCopying()
+  {
+	  Picture swan = new Picture("swan.jpg");
+	  Picture snowman = new Picture("snowman.jpg");
+	  snowman.copy( swan , 100, 100);
+	  snowman.explore();
+	  
+	  
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -149,7 +159,8 @@ public class PictureTester
 //    testfullrandomGreen();
 //    testCollage();
 //    testCopy();
-    testCollage2();
+	  testCopying();
+//    testCollage2();
 //    testEdgeDetection();
 //    testlifeOnTheEdge();
     //testChromakey();
