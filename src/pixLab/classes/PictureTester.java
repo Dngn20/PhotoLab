@@ -125,6 +125,16 @@ public class PictureTester
 	  snowman.explore();
 	  
   }
+  
+  public static void testValentinesMeme()
+  {
+	  Picture sad = new Picture("Happy S.A.D.jpg");
+	  sad.addMemeMessage("You are not the only one", 10, 40);
+	  sad.explore();
+	  sad.write("SadDay.jpg");
+	  
+	  
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -149,7 +159,8 @@ public class PictureTester
 //    testfullrandomGreen();
 //    testCollage();
 //    testCopy();
-    testCollage2();
+//    testCollage2();
+//    testValentinesMeme();
 //    testEdgeDetection();
 //    testlifeOnTheEdge();
     //testChromakey();

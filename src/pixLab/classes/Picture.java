@@ -467,6 +467,12 @@ public class Picture extends SimplePicture
 		  }
 	  }
   }
+  
+ public void ValentinesMeme()
+ {
+	 Pixel[][] pixels = this.getPixels2D();
+	 
+ }
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
@@ -476,6 +482,13 @@ public class Picture extends SimplePicture
     beach.explore();
     beach.zeroBlue();
     beach.explore();
+  }
+  
+  public void GlitchArt()
+  {
+	  Pixel [][] pixels = this.getPixels2D();
+	  
+	  
   }
   
 } // this } is the end of class Picture, put all new methods before this
