@@ -277,15 +277,15 @@ public class Picture extends SimplePicture
     }   
   }
 
-  public void copyin(Picture fromPic, int startRow, int startCol)
+  public void Copying(Picture fromPic, int startRow, int startCol)
   {
 	    Pixel fromPixel = null;
 	    Pixel toPixel = null;
 	    Pixel[][] toPixels = this.getPixels2D();
 	    Pixel[][] fromPixels = fromPic.getPixels2D();
-	    for (int fromRow = 0, toRow = startRow; fromRow < fromPixels.length && toRow < toPixels.length; fromRow++, toRow++)
+	    for (int fromRow = 0, toRow = 100; fromRow < fromPixels.length && toRow < toPixels.length; fromRow++, toRow++)
 	    {
-	      for (int fromCol = 0, toCol = startCol; fromCol < fromPixels[0].length &&toCol < toPixels[0].length;  fromCol++, toCol++)
+	      for (int fromCol = 0, toCol = 100; fromCol < fromPixels[0].length &&toCol < toPixels[0].length;  fromCol++, toCol++)
 	      {
 	        fromPixel = fromPixels[fromRow][fromCol]; toPixel = toPixels[toRow][toCol]; toPixel.setColor(fromPixel.getColor());
 	      }
@@ -487,6 +487,23 @@ public class Picture extends SimplePicture
   public void GlitchArt()
   {
 	  Pixel [][] pixels = this.getPixels2D();
+	  Pixel pixel1 = null;
+	  Pixel pixel2 = null;
+ 	  Picture currentImage = new Picture("beach.jpg");
+ 	  
+ 	  this.lifeOnTheEdge((int) (Math.random()));
+ 	  this.mirrorVertical();
+ 	  this.m
+ 	  this.zeroBlue();
+ 	 
+ 	  
+ 	  
+ 	  
+ 	  
+ 	  
+	  
+	  
+	  
 	  
 	  
   }
