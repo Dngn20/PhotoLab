@@ -493,19 +493,74 @@ public class Picture extends SimplePicture
  	  
  	  this.lifeOnTheEdge((int) (Math.random()));
  	  this.mirrorVertical();
- 	  this.m
  	  this.zeroBlue();
- 	 
- 	  
- 	  
- 	  
- 	  
- 	  
+ 
+  }
+  
+  public void chromaKey()
+  {
 	  
 	  
+  }
+  
+  
+  public void encode(Picture otherPic)
+  {
+	  Pixel [][] source = this.getPixels2D();
+	  Pixel [][] hiddenPicture = otherPic.getPixels2D();
 	  
+	  Pixel sourcePixel = null;
+	  Pixel hiddenPixel = null;
 	  
+	  for(int row = 0; row < source.length; row++)
+	  {
+		  for(int col = 0; col < source[0].length; col++)
+		  {
+			  sourcePixel = source[row][col];
+			  hiddenPixel = hiddenPicture[row][col];
+			  
+			  if(hiddenPixel.getRed() == 255 && hiddenPixel.getGreen() == 255 && hiddenPixel.getBlue()== 255)
+			  {
+				  int currentRed = sourcePixel.getRed();
+				  if(currentRed % 2 == 0)
+				  {
+					  sourcePixel.setRed(currentRed + 1);
+				  }
+				  
+			  }
+			  else
+			  {
+				  int currentRed = sourcePixel.getRed();
+				  if(currentRed % 2 != 0)
+				  {
+					  sourcePixel.setRed(currentRed -1);
+				  }
+			  }
+		  }
+		  
+	  }
+	 this.write("encrypted.png");
+	 this.explore();
+  }
+  
+  public void decode()
+  {
+	  Pixel [][] decoded = this.getPixels2D();
+	  Pixel currentPixel = null;
 	  
+	  for(int row = 0; row < decoded.length; row++)
+	  {
+		  for(int col = 0; col < decoded[0].length; col++)
+		  {
+			  currentPixel = decoded[row][col];
+			  int currentRed = currentPixel.getRed();
+			  if(currentRed % 2 == 0)
+			  {
+				  currentPixel.setColor(new Color(127, 255, 0));
+			  }
+		  }
+	  }
+	  this.explore();
   }
   
 } // this } is the end of class Picture, put all new methods before this
