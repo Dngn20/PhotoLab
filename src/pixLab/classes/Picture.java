@@ -499,8 +499,7 @@ public class Picture extends SimplePicture
   
   public void chromaKey()
   {
-	  
-	  
+	  Pixel [][] greenScreen = this.getPixels2D();
   }
   
   

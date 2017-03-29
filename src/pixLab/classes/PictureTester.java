@@ -135,6 +135,15 @@ public class PictureTester
 	  
 	  
   }
+  public static void testEncode()
+  {
+	  Picture earth = new Picture("Eurph.jpg");
+	  Picture pi = new Picture("PI message.png");
+	  earth.encode(pi);
+	  earth.explore();
+	  earth.decode();
+	  earth.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -161,6 +170,7 @@ public class PictureTester
 //    testCopy();
 //    testCollage2();
 //    testValentinesMeme();
+	  testEncode();
 //    testEdgeDetection();
 //    testlifeOnTheEdge();
     //testChromakey();
